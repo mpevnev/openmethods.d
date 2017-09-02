@@ -9,8 +9,9 @@ DFLAGS="-g -I../../source $DFLAGS"
 
 SOFLAGS="-L-fPIC -shared"
 
-$DC $DFLAGS $SOFLAGS -c ../../source/openmethods.d
-$DC $DFLAGS $SOFLAGS openmethods.o -oflibopenmethods.so
+$DC $DFLAGS $SOFLAGS -c -of=openmethods.o ../../source/openmethods/package.d
+$DC $DFLAGS $SOFLAGS -c ../../source/openmethods/runtime.d
+$DC $DFLAGS $SOFLAGS openmethods.o runtime.o -oflibopenmethods.so
 
 $DC $DFLAGS $SOFLAGS -c animals.d
 $DC $DFLAGS $SOFLAGS animals.o -oflibanimals.so
